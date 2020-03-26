@@ -86,7 +86,29 @@ window.addEventListener(
       e => {
         if (clicker.score >= 100 * clicktotal) {
           clicker.score -= 100 * clicktotal;
-          clicktotal++;
+          if (clicktotal === 1) {
+            clicktotal++;
+          } else {
+            clicktotal =
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal *
+              clicktotal;
+          }
         }
       },
       false
