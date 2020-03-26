@@ -61,6 +61,8 @@ window.addEventListener(
     let bonusButton = document.querySelector("#bonus");
     let clickerButton2 = document.querySelector("#clicker2");
     let bonusButton2 = document.querySelector("#bonus2");
+    let bonusButton3 = document.querySelector("#bonus3");
+    let clicktotal = 1;
     score = document.querySelector("#score"); // score element
 
     // eventlisteners för knappar med tillhörande funktioner
@@ -68,7 +70,7 @@ window.addEventListener(
       "click",
       e => {
         // vid click öka score med 1
-        clicker.click(1);
+        clicker.click(clicktotal);
         console.log(clicker.score);
       },
       false
@@ -82,16 +84,18 @@ window.addEventListener(
     bonusButton.addEventListener(
       "click",
       e => {
-        // vid click skapa och lägg till denna bonus
-        clicker.activeBonuses.push(Bonus(10, 2, 60));
+        if (clicker.score >= 100 * clicktotal) {
+          clicker.score -= 100 * clicktotal;
+          clicktotal++;
+        }
       },
       false
     );
 
     bonusButton2.addEventListener("click", e => {
-      if (Clicker >= 100) {
+      if (clicker.score >= 100) {
         clicker.activeBonuses.push(Bonus(10, 10, 60));
-        clicker.click(-100);
+        clicker.score -= 100;
       }
     });
 
