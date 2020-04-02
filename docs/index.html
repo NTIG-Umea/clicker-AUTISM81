@@ -9,19 +9,27 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header>
-      <p id="score">Score: 0</p>
-    </header>
     <main>
-      <button id="clicker" class="button clicker">Click</button>
-      <button id="clicker2" class="button clicker">Click for 2</button>
-      <button id="bonus" class="button bonus">Bonus</button>
-      <button id="bonus2" class="button bonus">More</button>
-
-      <p>
-        För introduktion och info kring javascript kolla
-        <a href="jsprimer.html">här</a>.
-      </p>
+      <div class="left">
+        <p id="score">chriscoins: 0</p>
+        <button id="clicker" class="button clicker">
+          <img
+            class="chris-n"
+            id="chris-n"
+            src="images\IMG_20200402_130013.jpg"
+          />
+          <img
+            class="chris-e displaynone"
+            id="chris-e"
+            src="images\IMG_20200402_130016.jpg"
+          />
+        </button>
+      </div>
+      <div class="right">
+        <button id="clicker2" class="button clicker">Click for 2</button>
+        <button id="bonus" class="button bonus">Bonus</button>
+        <button id="bonus2" class="button bonus">More</button>
+      </div>
     </main>
     <script src="js/clicker.js"></script>
   </body>

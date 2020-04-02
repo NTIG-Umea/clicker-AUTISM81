@@ -49,6 +49,15 @@ const Bonus = function(duration, value, interval) {
 // Initiera spelets objekt
 let clicker = Clicker();
 let score;
+let clickerButton = document.querySelector("#clicker");
+let bonusButton = document.querySelector("#bonus");
+let clickerButton2 = document.querySelector("#clicker2");
+let bonusButton2 = document.querySelector("#bonus2");
+let bonusButton3 = document.querySelector("#bonus3");
+let chrisn = document.querySelector("#chris-n");
+let chrise = document.querySelector("#chris-e");
+let clicktotal = 1;
+score = document.querySelector("#score"); // score element
 
 // Vänta på att sidan ska laddas
 window.addEventListener(
@@ -57,13 +66,6 @@ window.addEventListener(
     console.log("page is fully loaded");
 
     // Hämta html element
-    let clickerButton = document.querySelector("#clicker");
-    let bonusButton = document.querySelector("#bonus");
-    let clickerButton2 = document.querySelector("#clicker2");
-    let bonusButton2 = document.querySelector("#bonus2");
-    let bonusButton3 = document.querySelector("#bonus3");
-    let clicktotal = 1;
-    score = document.querySelector("#score"); // score element
 
     // eventlisteners för knappar med tillhörande funktioner
     clickerButton.addEventListener(
@@ -72,6 +74,8 @@ window.addEventListener(
         // vid click öka score med 1
         clicker.click(clicktotal);
         console.log(clicker.score);
+        chrise.classList.toggle("displaynone");
+        chrisn.classList.toggle("displaynone");
       },
       false
     );
@@ -89,25 +93,7 @@ window.addEventListener(
           if (clicktotal === 1) {
             clicktotal++;
           } else {
-            clicktotal =
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal *
-              clicktotal;
+            clicktotal *= clicktotal;
           }
         }
       },
@@ -132,8 +118,19 @@ window.addEventListener(
  * så allt som sker i denna funktion försöker
  * webbläsaren köra 60 ggr i sekunden
  */
+
+let i = 0;
+
 function runClicker() {
   clicker.update(); // uppdatera spelet
+  i++;
+
+  if (i === 60) {
+    i = 0;
+    console.log("dö");
+    chrise.classList.toggle("displaynone");
+    chrisn.classList.toggle("displaynone");
+  }
 
   // gå igenom spelets bonusar och aktivera dem
   for (let bonus of clicker.activeBonuses) {
@@ -149,7 +146,7 @@ function runClicker() {
   }
 
   // uppdaterar score texten
-  score.textContent = "Score: " + clicker.score;
+  score.textContent = "Chriscoins: " + clicker.score;
 
   window.requestAnimationFrame(runClicker);
 }
