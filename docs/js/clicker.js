@@ -49,14 +49,19 @@ const Bonus = function(duration, value, interval) {
 // Initiera spelets objekt
 let clicker = Clicker();
 let score;
+let ccscore;
 let clickerButton = document.querySelector("#clicker");
 let bonusButton = document.querySelector("#bonus");
 let clickerButton2 = document.querySelector("#clicker2");
 let bonusButton2 = document.querySelector("#bonus2");
-let bonusButton3 = document.querySelector("#bonus3");
 let chrisn = document.querySelector("#chris-n");
 let chrise = document.querySelector("#chris-e");
 let clicktotal = 1;
+let multi1 = 1;
+let multi2 = 1;
+let ccs = 0;
+
+ccscore = document.querySelector("#scores");
 score = document.querySelector("#score"); // score element
 
 // Vänta på att sidan ska laddas
@@ -81,20 +86,28 @@ window.addEventListener(
     );
 
     clickerButton2.addEventListener("click", e => {
-      clicker.click(2);
-      console.log(clicker.score);
+      if (clicker.score >= 200*clicktotal*multi1) {
+        clicker.score -= 200*clicktotal* multi1;
+        multi1++;
+        if (clicktotal === 1) {
+          clicktotal++;
+        } else {
+          clicktotal += 2;
+        }
+        clickerButton2.textContent = "+2cc : " + clicktotal*200*multi1;
+        console.log(clicker.score);
+      }
     });
 
     bonusButton.addEventListener(
       "click",
       e => {
-        if (clicker.score >= 100 * clicktotal) {
-          clicker.score -= 100 * clicktotal;
-          if (clicktotal === 1) {
-            clicktotal++;
-          } else {
-            clicktotal += 2;
+        if (!ccs === 0) {
+          if (clicker.score >= 1000*ccs*multi2) {
+            ccs *= 2;
           }
+        } else if(clicker.score >= 1000*multi2){
+          ccs += 2;
         }
       },
       false
@@ -132,6 +145,8 @@ function runClicker() {
         chrise.classList.toggle("displaynone");
         chrisn.classList.toggle("displaynone");
       }
+      clicker.score += ccs;
+
   }
 
   // gå igenom spelets bonusar och aktivera dem
@@ -149,6 +164,7 @@ function runClicker() {
 
   // uppdaterar score texten
   score.textContent = "Chriscoins: " + clicker.score;
+  ccscore.textContent = "cc/s: " + ccs;
 
   window.requestAnimationFrame(runClicker);
 }
