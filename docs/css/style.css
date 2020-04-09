@@ -1,11 +1,12 @@
-body {
-  text-align: center;
-  display: inline-block;
+
+
+.container {
+  
 }
 
 .left {
+  width: 50%;
   float: left;
-  display: block;
 }
 
 .button {
@@ -13,7 +14,10 @@ body {
 }
 
 .right {
+  width: 50%;
+  display: flex;
   float: left;
+  align-items: center;
 }
 
 .displaynone {

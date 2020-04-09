@@ -93,7 +93,7 @@ window.addEventListener(
           if (clicktotal === 1) {
             clicktotal++;
           } else {
-            clicktotal *= clicktotal;
+            clicktotal += 2;
           }
         }
       },
@@ -128,8 +128,10 @@ function runClicker() {
   if (i === 60) {
     i = 0;
     console.log("dö");
-    chrise.classList.toggle("displaynone");
-    chrisn.classList.toggle("displaynone");
+      if (!chrise.classList.contains("displaynone")) {
+        chrise.classList.toggle("displaynone");
+        chrisn.classList.toggle("displaynone");
+      }
   }
 
   // gå igenom spelets bonusar och aktivera dem
