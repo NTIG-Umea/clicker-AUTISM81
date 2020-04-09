@@ -57,8 +57,8 @@ let bonusButton2 = document.querySelector("#bonus2");
 let chrisn = document.querySelector("#chris-n");
 let chrise = document.querySelector("#chris-e");
 let clicktotal = 1;
-let multi1 = Math.floor(Math.random() * 10)+1;
-let multi2 = Math.floor(Math.random() * 10)+1;
+let multi1 = 1;
+let multi2 = 1;
 let ccs = 0;
 
 clickerButton2.textContent = "+2cc : " + clicktotal*200*multi1;
