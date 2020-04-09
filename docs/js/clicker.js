@@ -92,7 +92,7 @@ window.addEventListener(
         if (clicktotal === 1) {
           clicktotal++;
         } else {
-          clicktotal += 2;
+          clicktotal *= clicktotal;
         }
         clickerButton2.textContent = "+2cc : " + clicktotal*200*multi1;
         console.log(clicker.score);
@@ -104,11 +104,18 @@ window.addEventListener(
       e => {
         if (!ccs === 0) {
           if (clicker.score >= 1000*ccs*multi2) {
-            ccs *= 2;
+            ccs += 2;
+            clicker.score -= 1000*multi2;
+            multi2++;
+            bonusButton.textContent = "+2cc/s : " + 1000*multi2; 
           }
         } else if(clicker.score >= 1000*multi2){
+          clicker.score -= 1000*multi2*ccs;
           ccs += 2;
+          multi2++;
+          bonusButton.textContent = "+2cc/s : " + 1000*multi2*ccs; 
         }
+        
       },
       false
     );
