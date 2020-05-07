@@ -22,10 +22,10 @@
 
 .chris-e, .chris-n {
   width: 100%;
+  background-color: #2789B8;
 }
 
 .button {
-  background-color: white;
   border: none;
   color: black;
   width: 40%;
@@ -41,6 +41,12 @@
   border: none;
   color: transparent;
   margin: 10%;
+  padding: 0;
+  background-color: #2789B8;
+}
+
+.buttonc:focus {
+  outline:none;
 }
 
 .score {
