@@ -60,6 +60,7 @@ let clicktotal = 1;
 let multi1 = 1;
 let multi2 = 1;
 let ccs = 0;
+var audio1 = document.getElementById("audio1");
 
 clickerButton2.textContent = "+2cc : " + clicktotal*200*multi1;
 bonusButton.textContent = "+2cc/s : " + 1000*multi2;
@@ -84,6 +85,7 @@ window.addEventListener(
         console.log(clicker.score);
         chrise.classList.toggle("displaynone");
         chrisn.classList.toggle("displaynone");
+        audio1.play();
       },
       false
     );
@@ -95,7 +97,7 @@ window.addEventListener(
         if (clicktotal === 1) {
           clicktotal++;
         } else {
-          clicktotal *= clicktotal;
+
         }
         clickerButton2.textContent = "+2cc : " + clicktotal*200*multi1;
         console.log(clicker.score);
@@ -124,9 +126,9 @@ window.addEventListener(
     );
 
     bonusButton2.addEventListener("click", e => {
-      if (clicker.score >= 100) {
-        clicker.activeBonuses.push(Bonus(10, 10, 60));
-        clicker.score -= 100;
+      if (clicker.score >= 10000000) {
+        play();
+        clicker.score -= 10000000;
       }
     });
 
@@ -177,4 +179,15 @@ function runClicker() {
   ccscore.textContent = "cc/s: " + ccs;
 
   window.requestAnimationFrame(runClicker);
+}
+
+function play() {
+  var rand = Math.round(Math.random() * 2) + 1;
+  if (rand = 1) {
+    var audio = document.getElementById("audio");
+    audio.play();
+  } else {
+    var audio2 = document.getElementById("audio2");
+    audio2.play();
+  } 
 }
