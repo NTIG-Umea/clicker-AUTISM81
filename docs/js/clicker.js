@@ -60,7 +60,6 @@ let clicktotal = 1;
 let multi1 = 1;
 let multi2 = 1;
 let ccs = 0;
-var audio1 = document.getElementById("audio1");
 
 clickerButton2.textContent = "+2cc : " + clicktotal*200*multi1;
 bonusButton.textContent = "+2cc/s : " + 1000*multi2;
@@ -85,7 +84,6 @@ window.addEventListener(
         console.log(clicker.score);
         chrise.classList.toggle("displaynone");
         chrisn.classList.toggle("displaynone");
-        audio1.play();
       },
       false
     );
@@ -94,11 +92,13 @@ window.addEventListener(
       if (clicker.score >= 200*clicktotal*multi1) {
         clicker.score -= 200*clicktotal* multi1;
         multi1++;
+        //kommer att öka antalet cc per köp av men kommer att öka priset av det.
         if (clicktotal === 1) {
           clicktotal++;
         } else {
 
         }
+        //uppdaterar texten i html dokumentet
         clickerButton2.textContent = "+2cc : " + clicktotal*200*multi1;
         console.log(clicker.score);
       }
@@ -124,7 +124,7 @@ window.addEventListener(
       },
       false
     );
-
+      //kommer att spela ett ljud för 10,000,000cc
     bonusButton2.addEventListener("click", e => {
       if (clicker.score >= 10000000) {
         play();
@@ -164,14 +164,6 @@ function runClicker() {
   // gå igenom spelets bonusar och aktivera dem
   for (let bonus of clicker.activeBonuses) {
     bonus.update(clicker.timer);
-
-    // om en bonus löpt ut, ta bort den från arrayen
-    if (bonus.duration <= 0) {
-      clicker.activeBonuses.splice(
-        clicker.activeBonuses.indexOf(x => x === bonus),
-        1
-      );
-    }
   }
 
   // uppdaterar score texten
@@ -181,13 +173,8 @@ function runClicker() {
   window.requestAnimationFrame(runClicker);
 }
 
+//spelar ett ljud som en överraskning av en betalning på 10,000,000cc
 function play() {
-  var rand = Math.round(Math.random() * 2) + 1;
-  if (rand = 1) {
     var audio = document.getElementById("audio");
-    audio.play();
-  } else {
-    var audio2 = document.getElementById("audio2");
-    audio2.play();
-  } 
+    audio.play(); 
 }
