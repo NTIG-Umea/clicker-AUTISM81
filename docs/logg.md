@@ -3,3 +3,5 @@
 9/4 -20; Idag har jag jobbat med sidans design och stil. Jag är inte riktigt nöjd med den och funderar på om jag ska designa om sidan. Jag har idag även jobbat mycket med javascripten och fixat så att knapparna fungerar som de ska. Jag har även planer på att göra en knapp som kostar 10 000 000cc som gör att det ska regna massor av mitt ansikte.
 
 7/5 -20; Idag har jag struntat i den iden att det ska regna massro av mitt ansikte när man klickar "surprise" knappen. Istället kommer det att spela ett ljud. Jag har även fixat till bilderna och gjort så att de är rätt storlekar. Denna lektion har vairt mest av att städa upp och fixat till sidan så att det hela ser bättre ut. 
+
+14/5 -20; Idag har jag suttit och skrivit på min post-mortem och har även ficat till en font på min sida. 
