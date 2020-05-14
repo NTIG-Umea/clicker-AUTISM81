@@ -152,7 +152,6 @@ function runClicker() {
 
   if (i === 60) {
     i = 0;
-    console.log("dö");
       if (!chrise.classList.contains("displaynone")) {
         chrise.classList.toggle("displaynone");
         chrisn.classList.toggle("displaynone");
