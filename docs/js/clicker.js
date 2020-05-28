@@ -149,7 +149,7 @@ let i = 0;
 function runClicker() {
   clicker.update(); // uppdatera spelet
   i++;
-
+  
   if (i === 60) {
     i = 0;
       if (!chrise.classList.contains("displaynone")) {
